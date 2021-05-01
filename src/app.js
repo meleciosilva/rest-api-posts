@@ -30,6 +30,7 @@ app.post("/posts", (req, res, next) => {
   const { title, body } = req.body.data;
   if (!title || !body) return next({ status: 500, message: "Both title and body are required" });
   const newPost = {
+    userId: Math.ceil(Math.random() * 10),
     id: posts.length + 1,
     title,
     body
